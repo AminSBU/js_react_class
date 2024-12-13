@@ -1,4 +1,4 @@
-import { useState } from 'react';  
+import { useState, useEffect } from 'react';  
 import './App.css';  
 
 function App() {  
@@ -31,6 +31,36 @@ function App() {
   const clear = () => {  
     setExpression('');  
   };  
+
+  const handleKeyDown = (event) => {  
+    const key = event.key;  
+
+    if (!isNaN(key) || key === '.') {  
+      handleButtonClick(key);  
+    } else if (key === 'Enter' || key === '=') {  
+      calculateResult();  
+    } else if (key === 'Backspace') {  
+      // Optional: Implement backspace functionality  
+      setExpression(expression.slice(0, -1));  
+    } else if (key === '+') {  
+      handleOperatorClick('+');  
+    } else if (key === '-') {  
+      handleOperatorClick('-');  
+    } else if (key === '*') {  
+      handleOperatorClick('X'); // Treat '*' as multiplication  
+    } else if (key === '/') {  
+      handleOperatorClick('/');  
+    } else if (key === 'c' || key === 'C') {  
+      clear();  
+    }  
+  };  
+
+  useEffect(() => {  
+    window.addEventListener('keydown', handleKeyDown);  
+    return () => {  
+      window.removeEventListener('keydown', handleKeyDown);  
+    };  
+  }, [expression]);  
 
   return (  
     <div className="container">  
