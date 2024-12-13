@@ -27,3 +27,8 @@ form input
   border-radius: 10px;
   color: white;
 }
+
+form input[type="button"]:hover
+{
+  background-color: rgb(236, 57, 207);
+}
