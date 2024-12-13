@@ -32,3 +32,19 @@ form input[type="button"]:hover
 {
   background-color: rgb(236, 57, 207);
 }
+
+form .CalculatorText
+{
+  display: flex;
+  justify-content: flex-end0;
+  margin: 5px 0px 15px 0px;
+}
+
+form .CalculatorText input
+{
+  text-align: right;
+  flex: 1;
+  font-size: 40px;
+  padding: 5px 10px;
+  color: white;
+}
