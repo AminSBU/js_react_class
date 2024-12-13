@@ -48,3 +48,8 @@ form .CalculatorText input
   padding: 5px 10px;
   color: white;
 }
+
+form input.equal
+{
+  width: 125px;
+}
